@@ -6,8 +6,7 @@ class SearchBox extends Component {
     render () {
         //var { monsters } = this.props;
 
-        console.log(this.props)
-        return (
+          return (
             <div>
                 <input className={ `search-box ${this.props.className}` } type='search' placeholder={ this.props.placeholder } onChange={ this.props.onChangeHandler }/>
             </div>

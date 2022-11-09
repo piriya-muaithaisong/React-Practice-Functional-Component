@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import { useState } from 'react';
 
 import CardList from './components/card-lists/card-list.component';
 import SearchBox from './components/search-box/search-box.component';
@@ -6,11 +6,22 @@ import logo from './logo.svg';
 import './App.css';
 
 const App = () => {
+
+  const [ searchField, setsearchField ] = useState(''); // [value, setValue]
+  
+  console.log(searchField)
+
+
+  const onSearchChange = (event) => {
+    const searchFieldString = event.target.value.toLowerCase();
+    setsearchField(searchFieldString)
+  }
+
   return (
     <div className="App">
       <h1 className='app-title'>Monsters Searcher</h1>
-      {/* <SearchBox className='monsters-search box' onChangeHandler = { onSearchChange } placeholder="search monster"/>
-      <CardList monsters={filterredMonsters}/> */}
+      <SearchBox className='monsters-search box' onChangeHandler = { onSearchChange } placeholder="search monster"/>
+      {/* <CardList monsters={filterredMonsters}/> */}
     </div>
   );
 }
@@ -44,12 +55,12 @@ const App = () => {
 //       ))
 //   }
 
-//   onSearchChange = (event) => {
-//     const  searchField = event.target.value.toLowerCase();
-//     this.setState(()=> {
-//       return { searchField }
-//     });
-//   }
+  // onSearchChange = (event) => {
+  //   const  searchField = event.target.value.toLowerCase();
+  //   this.setState(()=> {
+  //     return { searchField }
+  //   });
+  // }
 
 //   render() {
 //     console.log('render')
